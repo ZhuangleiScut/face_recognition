@@ -28,6 +28,7 @@ face_encoder = dlib.face_recognition_model_v1(face_recognition_model)
 
 def _rect_to_css(rect):
     """
+    点换tuple
     Convert a dlib 'rect' object to a plain tuple in (top, right, bottom, left) order
 
     :param rect: a dlib 'rect' object
@@ -38,6 +39,7 @@ def _rect_to_css(rect):
 
 def _css_to_rect(css):
     """
+    tuple换点
     Convert a tuple in (top, right, bottom, left) order to a dlib `rect` object
 
     :param css:  plain tuple representation of the rect in (top, right, bottom, left) order
@@ -59,6 +61,7 @@ def _trim_css_to_bounds(css, image_shape):
 
 def face_distance(face_encodings, face_to_compare):
     """
+    计算两张脸的相似程度，返回相似度。好像是直接计算矩阵差异
     Given a list of face encodings, compare them to a known face encoding and get a euclidean distance
     for each comparison face. The distance tells you how similar the faces are.
 
@@ -74,6 +77,7 @@ def face_distance(face_encodings, face_to_compare):
 
 def load_image_file(file, mode='RGB'):
     """
+    加载image文件
     Loads an image file (.jpg, .png, etc) into a numpy array
 
     :param file: image file name or file object to load
@@ -88,6 +92,7 @@ def load_image_file(file, mode='RGB'):
 
 def _raw_face_locations(img, number_of_times_to_upsample=1, model="hog"):
     """
+    返回人脸边界
     Returns an array of bounding boxes of human faces in a image
 
     :param img: An image (as a numpy array)
